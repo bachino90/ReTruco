@@ -11,4 +11,47 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #import <GameKit/GameKit.h>
+    #import <QuartzCore/QuartzCore.h>
+    #import <AVFoundation/AVFoundation.h>
+    #define SESSION_ID @"ReTruco"
+    #define MAX_PLAYER 2
+    #define CARD_WIDTH 67.0f //57.52f  //67.0f
+    #define CARD_HEIGHT 99.0f //85.0f  //99.0f
+    #define TOP_CARD_SCALE 0.8f
+    #define CARD_TURNOVER 123
+    #define INVALID_INDEX 8
+    // Returns a random number between 0.0 and 1.0 (inclusive).
+    #define RANDOM_FLOAT() ((float)arc4random()/0xFFFFFFFFu)
+    // Returns a random number between 0 and n (inclusive).
+    #define RANDOM_INT(n) (arc4random() % (n + 1))
+
+    typedef enum
+    {
+        QuitReasonNoNetwork,          // no Wi-Fi or Bluetooth
+        QuitReasonConnectionDropped,  // communication failure with server
+        QuitReasonUserQuit,           // the user terminated the connection
+        QuitReasonServerQuit,         // the server quit the game (on purpose)
+    }
+    QuitReason;
+
+    typedef enum
+    {
+        TrucoStateNothing,
+        TrucoStateTruco,
+        TrucoStateReTruco,
+        TrucoStateQuieroValeCuatro,
+        TrucoStateNo,
+    }TrucoState;
+
+    typedef enum
+    {
+        EnvidoTypeNothing,
+        EnvidoTypeEnvido,
+        EnvidoTypeRealEnvido,
+        EnvidoTypeFaltaEnvido,
+        EnvidoTypeEnvidoEnvido,
+        EnvidoTypeEnvidoRealEnvido
+    }EnvidoType;
 #endif
+

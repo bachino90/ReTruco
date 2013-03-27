@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HostViewController.h"
+#import "JoinViewController.h"
+#import "GameViewController.h"
 
-@interface ReTrucoViewController : UIViewController
-
+@interface ReTrucoViewController : UIViewController <HostViewControllerDelegate, JoinViewControllerDelegate, GameViewControllerDelegate>
+- (void)performExitAnimationWithCompletionBlock:(void (^)(BOOL))block;
 @end
